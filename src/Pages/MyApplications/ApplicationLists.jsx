@@ -2,7 +2,6 @@ import React from "react";
 import JobApplicationRow from "./JobApplicationRow";
 
 const ApplicationLists = ({ applications }) => {
-  console.log(applications);
   return (
     <div>
       <p>Job applied so far: {applications.length}</p>
@@ -11,9 +10,7 @@ const ApplicationLists = ({ applications }) => {
           {/* head */}
           <thead>
             <tr>
-              <th>
-                No.
-              </th>
+              <th>No.</th>
               <th>Name</th>
               <th>Job</th>
               <th>Favorite Color</th>
@@ -21,9 +18,13 @@ const ApplicationLists = ({ applications }) => {
             </tr>
           </thead>
           <tbody>
-           {
-            applications.map((application,index)=><JobApplicationRow application={application} key={application._id} index={index}></JobApplicationRow>)
-           }
+            {applications.map((application, index) => (
+              <JobApplicationRow
+                application={application}
+                key={application._id}
+                index={index}
+              ></JobApplicationRow>
+            ))}
           </tbody>
         </table>
       </div>

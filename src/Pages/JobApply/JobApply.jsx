@@ -9,8 +9,6 @@ const JobApply = () => {
   const { id: jobId } = useParams();
   const { currentUser } = UseAuth();
   const navigate = useNavigate();
-  console.log(jobId);
-  console.log(currentUser);
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -34,7 +32,7 @@ const JobApply = () => {
           sweetSuccessMessage("Application has been submitted successful").then(
             () => {
               navigate("/myApplications");
-            }
+            },
           );
         }
       })

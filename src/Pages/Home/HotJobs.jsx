@@ -3,8 +3,6 @@ import JobCard from "../Shared/JobCard";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 
 const HotJobs = ({ jobs, loading }) => {
-  console.log(jobs);
-
   return (
     <div>
       <h1 className="text-4xl font-bold text-center my-8">

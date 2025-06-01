@@ -1,32 +1,42 @@
-import React, { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ApplicationsStats from "./ApplicationsStats";
 import ApplicationLists from "./ApplicationLists";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import UseAuth from "../../Hooks/UseAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyApplications = () => {
   const { currentUser } = UseAuth();
   const [loading, setLoading] = useState(true);
   const [applications, setApplications] = useState([]);
-
-  console.log(currentUser.accessToken);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     setLoading(true);
-    fetch(
-      `http://localhost:3000/application?applicantUID=${currentUser?.uid}&applicantEmail=${currentUser?.email}`,
-      {
-        headers: {
-          authorization: `Bearer ${currentUser.accessToken}`,
-        },
-      }
-    )
-      .then((res) => res.json())
+    axiosSecure
+      .get(
+        `/application?applicantUID=${currentUser?.uid}&applicantEmail=${currentUser?.email}`,
+      )
       .then((data) => {
-        setApplications(data);
+        setApplications(data.data);
         setLoading(false);
       });
-  }, [currentUser]);
+
+    // its general system of fetching data
+    // fetch(
+    //   `http://localhost:3000/application?applicantUID=${currentUser?.uid}&applicantEmail=${currentUser?.email}`,
+    //   {
+    //     headers: {
+    //       authorization: `Bearer ${currentUser.accessToken}`,
+    //     },
+    //   }
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setApplications(data);
+    //     setLoading(false);
+    //   });
+  }, [currentUser, axiosSecure]);
   return (
     <div>
       <ApplicationsStats></ApplicationsStats>

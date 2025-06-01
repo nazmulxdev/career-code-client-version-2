@@ -7,7 +7,7 @@ const useApplicationApi = () => {
       .get(`/jobs/applications?email=${email}`)
       .then((res) => res.data);
   };
-  return {myJobApplicationPromise};
+  return { myJobApplicationPromise };
 };
 
 export default useApplicationApi;
