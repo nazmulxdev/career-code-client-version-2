@@ -24,7 +24,7 @@ const MyApplications = () => {
 
     // its general system of fetching data
     // fetch(
-    //   `http://localhost:3000/application?applicantUID=${currentUser?.uid}&applicantEmail=${currentUser?.email}`,
+    //   `https://career-code-server-version-2.vercel.app/application?applicantUID=${currentUser?.uid}&applicantEmail=${currentUser?.email}`,
     //   {
     //     headers: {
     //       authorization: `Bearer ${currentUser.accessToken}`,

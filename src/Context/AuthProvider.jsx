@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      fetch ('http://localhost:3000/')
+      fetch("https://career-code-server-version-2.vercel.app/");
       setLoading(false);
     });
 

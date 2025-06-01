@@ -1,5 +1,5 @@
 export const myApplicationsPromise = (email, uid) => {
   return fetch(
-    `http://localhost:3000/applications?applicantUID=${uid}&applicantEmail=${email}`
+    `https://career-code-server-version-2.vercel.app/applications?applicantUID=${uid}&applicantEmail=${email}`,
   );
 };

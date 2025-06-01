@@ -26,7 +26,9 @@ const Router = createBrowserRouter([
         path: "/jobs/:id",
         Component: JobDetails,
         loader: ({ params }) => {
-          return fetch(`http://localhost:3000/jobs/${params.id}`);
+          return fetch(
+            `https://career-code-server-version-2.vercel.app/jobs/${params.id}`,
+          );
         },
         hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
@@ -38,7 +40,9 @@ const Router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:3000/jobs/${params.id}`);
+          return fetch(
+            `https://career-code-server-version-2.vercel.app/jobs/${params.id}`,
+          );
         },
         hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
@@ -74,7 +78,9 @@ const Router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/applications/job/${params.id}`),
+          fetch(
+            `https://career-code-server-version-2.vercel.app/applications/job/${params.id}`,
+          ),
       },
     ],
   },

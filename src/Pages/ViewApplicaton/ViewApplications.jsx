@@ -13,9 +13,12 @@ const ViewApplications = () => {
     console.log(event.target.value, application);
 
     axios
-      .patch(`http://localhost:3000/applications/${application}`, {
-        status: event.target.value,
-      })
+      .patch(
+        `https://career-code-server-version-2.vercel.app/applications/${application}`,
+        {
+          status: event.target.value,
+        },
+      )
       .then((res) => {
         if (res.data.modifiedCount) {
           sweetSuccessMessage("Status Update successful");

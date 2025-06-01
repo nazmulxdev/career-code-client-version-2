@@ -30,11 +30,11 @@ const AddJob = () => {
 
     newJob.status = "active";
     axios
-      .post("http://localhost:3000/jobs", newJob)
+      .post("https://career-code-server-version-2.vercel.app/jobs", newJob)
       .then((res) => {
         if (res.data.insertedId) {
           sweetSuccessMessage(
-            "This job has been saved and  published successfully"
+            "This job has been saved and  published successfully",
           ).then(() => {
             form.reset();
           });
